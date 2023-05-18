@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamil</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+        <h1>Get in Touch</h1>
+       
+        <input type="text" placeholder="your Name">
+        <input type="text" placeholder="Eamil-id">
+        <input type="text" placeholder="Phone no">
+     <textarea id="message" rows="4" placeholder="how can we help you"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+    </div>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    Host : "smtp.gmail.com",
+    Username : "dollymamgai12@gmail.com",
+    Password : "password",
+    To : 'mamgaidolly12@gmail.com',
+    From :document.getElementById("email").value,
+    Subject : "This is the subject",
+    Body : "name:"+ document.getElementById("name").value
+    + "<br>Email:"+document.getElementById("email").value
+    + "<br>phone no:"+document.getElementById("Phone no").value
+    + "<br>Message:"+document.getElementById("Message").value
+}).then(
+  message => alert("message sent suceesfully")
+);
+        }
+    </script>
+</body>
+</html>
